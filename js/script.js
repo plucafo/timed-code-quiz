@@ -17,3 +17,5 @@ function timer() {
 // START TIMER WITH BUTTON
 document.getElementById("start-btn").addEventListener("click", timer);
 
+// APPEND QUESTIONS TO QUESTION FIELD
+document.getElementById("question").innerHTML = questionSet[0].question; // OMG IT WORKED!

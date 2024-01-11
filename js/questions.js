@@ -6,5 +6,6 @@ var questionSet = [
     }
 ]
 
+// TESTING
 console.log("test");
 console.log(questionSet[0].question);
