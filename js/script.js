@@ -1,6 +1,10 @@
-var initialTime = 3;
+document.getElementById("timerEl").innerHTML = "0";
+
+// COUNTDOWN TIMER
+var initialTime;
 
 function timer() {
+  initialTime = 3;
   var setTime = setInterval(function () {
     document.getElementById("timerEl").innerHTML = initialTime;
     initialTime--;
@@ -10,4 +14,6 @@ function timer() {
   }, 1000);
 }
 
-timer();
+// START TIMER WITH BUTTON
+document.getElementById("start-btn").addEventListener("click", timer);
+

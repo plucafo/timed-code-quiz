@@ -37,16 +37,21 @@ body {
 }
 
 /* START BUTTON */
-.start-btn {
+#start-btn {
   padding: 10px;
   border-radius: 50px;
-  color: white;
+  color: var(--lightblue);
   background: var(--darkblue);
   border-style: dotted;
   border-color: var(--lightblue);
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#start-btn:hover {
+    color: white;
 }
 
 /* QUESTION & ANSWERS FIELD */
