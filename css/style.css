@@ -11,6 +11,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background: rgb(114, 194, 235);
+  color: rgb(33, 101, 237);
 }
 
 /* HEADER */
@@ -23,6 +24,19 @@ body {
 .title {
   text-align: center;
   padding-top: 100px;
+}
+
+/* START BUTTON */
+.start-btn {
+    padding: 10px;
+    border-radius: 50px;
+    color: white;
+    background: rgb(33, 101, 237);
+    border-style: dotted;
+    border-color: lightblue;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 /* QUESTION & ANSWERS FIELD */
