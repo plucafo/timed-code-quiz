@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>hey there</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+
+    <!-- css -->
+    <style>
+      .header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .questions {
+        margin-top: 100px;
+      }
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <p>View high score</p>
+      <p>Time: 
+        <span id="remaining-time"></span>
+      </p>
+    </div>
+    <div class="questions center">
+      <h4>Questions</h4>
+      <div id="question-container"></div>
+      <div>answers will go here eventually</div>
+      <div>button</div>
+      <div id="fail-img"></div>
+    </div>
+
+    <script src="./timer.js"></script>
+    <script src="./questions.js"></script>
+  </body>
+</html>

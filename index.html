@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timed Coding Quiz</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <header>
-        <div class="header-text">
-            <p>View Highscores</p>
-            <span>Time: 00</span>
-        </div>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- header section -->
+    <header class="header-container">
+      <p>View Highscores</p>
+      <p>Time: <span id="remaining-time">00</span></p>
     </header>
-</body>
+    <div class="title"><h1>Coding Quiz Challenge!</h1></div>
+    <!-- questions field -->
+    <div class="question-field">
+        <p>What does HTML stand for?</p>
+        <ol class = "answers-list">
+            <li>Hyper Text Markup Language</li>
+            <li>Hydro Temp Market Legend</li>
+            <li>Hyphen Text Markup Lesson</li>
+            <li>Hyper Touch Module Learning</li>
+        </ol>
+    </div>
+  </body>
 </html>

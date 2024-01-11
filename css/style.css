@@ -1,10 +1,41 @@
+/* IMPORTS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@100;300;400&display=swap");
+
+/* GENERAL */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header-text {
-    display: flex;
-    justify-content: space-between
+body {
+  font-family: "Poppins", sans-serif;
+  background: rgb(114, 194, 235);
+}
+
+/* HEADER */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.title {
+  text-align: center;
+  padding-top: 100px;
+}
+
+/* QUESTION & ANSWERS FIELD */
+.question-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 30px;
+}
+
+.answers-list {
+  list-style-type: upper-alpha;
 }
