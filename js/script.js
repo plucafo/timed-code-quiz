@@ -19,3 +19,8 @@ document.getElementById("start-btn").addEventListener("click", timer);
 
 // APPEND QUESTIONS TO QUESTION FIELD
 document.getElementById("question").innerHTML = questionSet[0].question; // OMG IT WORKED!
+
+document.getElementById("answer1").innerHTML = questionSet[0].answers[0];
+document.getElementById("answer2").innerHTML = questionSet[0].answers[1];
+document.getElementById("answer3").innerHTML = questionSet[0].answers[2];
+document.getElementById("answer4").innerHTML = questionSet[0].answers[3];
