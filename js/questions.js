@@ -5,7 +5,3 @@ var questionSet = [
         correct: "A"
     }
 ]
-
-// TESTING
-console.log("test");
-console.log(questionSet[0].question);
