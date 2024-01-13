@@ -29,10 +29,16 @@ document.getElementById("start-btn").addEventListener("click", timer);
 // ADD QUESTION #1 TO QUESTION FIELD
 document.getElementById("question").innerHTML = questionSet[0].question;
 
-document.getElementById("answer1").innerHTML = questionSet[0].answers[0];
-document.getElementById("answer2").innerHTML = questionSet[0].answers[1];
-document.getElementById("answer3").innerHTML = questionSet[0].answers[2];
-document.getElementById("answer4").innerHTML = questionSet[0].answers[3];
+for (var i = 0; i < questionSet[0].answers.length; i++) {
+  var answerId = "answer" + (i + 1);
+  document.getElementById(answerId).innerHTML = questionSet[0].answers[i];
+}
+// REPLACED CODE BELOW WITH ABOVE FOR LOOP
+// document.getElementById("answer1").innerHTML = questionSet[0].answers[0];
+// document.getElementById("answer2").innerHTML = questionSet[0].answers[1];
+// document.getElementById("answer3").innerHTML = questionSet[0].answers[2];
+// document.getElementById("answer4").innerHTML = questionSet[0].answers[3];
+
 
 // GET USER SELECTED ANSWER (A, B, C, or D) FROM CLICK EVENT AND CHECK IF IT IS THE CORRECT ANSWER
 var selectedAnswer;
