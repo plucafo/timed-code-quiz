@@ -42,6 +42,8 @@ document.addEventListener('click', function(event){
   selectedAnswer = clickedElement.dataset.value;
   console.log(event);
   console.log(selectedAnswer);
+  
+  if (selectedAnswer != undefined) {
+  alert("You have selected " + selectedAnswer);
+  }
 })
-
-// TRY TO ADD DATA-VALUE A, B, C, D TO li ELEMENTS and retrieve that value instead of the clickedElement.textContent.trim in the above event listener.
