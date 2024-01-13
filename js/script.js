@@ -33,3 +33,13 @@ document.getElementById("answer1").innerHTML = questionSet[0].answers[0];
 document.getElementById("answer2").innerHTML = questionSet[0].answers[1];
 document.getElementById("answer3").innerHTML = questionSet[0].answers[2];
 document.getElementById("answer4").innerHTML = questionSet[0].answers[3];
+
+// GET USER SELECTED ANSWER (A, B, C, or D) FROM CLICK EVENT
+var selectedAnswer;
+
+document.addEventListener('click', function(event){
+  var clickedElement = event.target;
+  selectedAnswer = clickedElement.textContent.trim().charAt(0);
+  console.log(event);
+  console.log(selectedAnswer);
+})
