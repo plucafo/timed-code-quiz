@@ -84,6 +84,11 @@ body {
   list-style: none;
 }
 
+.answers-list li:hover {
+  cursor: pointer;
+  text-shadow: 0 0 10px var(--darkblue);
+}
+
 .answers-list li:nth-child(2) {
   color: white;
 }

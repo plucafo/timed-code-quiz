@@ -8,7 +8,7 @@ function timer() {
   clearInterval(setTime);
 
   if (initialTime <= 0) {
-  initialTime = 3;
+  initialTime = 30;
   document.getElementById("start-btn").disabled = true;
 
   setTime = setInterval(function () {
@@ -22,7 +22,6 @@ function timer() {
   }, 1000);
 } 
 }
-
 
 // START TIMER WITH BUTTON
 document.getElementById("start-btn").addEventListener("click", timer);
