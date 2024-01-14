@@ -51,9 +51,11 @@ document.addEventListener("click", function (event) {
   if (selectedAnswer != undefined) {
     if (selectedAnswer == questionSet[0].correct) {
       alert("You are correct!");
-      // CALL FUNCTION TO CHANGE questionSet once it is made
+      questionIndex++;
+      displayQuestion();
     } else {
       alert("You are incorrect :(");
+      displayQuestion();
     }
   }
 });
