@@ -60,4 +60,7 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// CREATE FUNCTION TO CHANGE questionSet HERE
+// ADD 10 POINTS TO SCORE FOR RIGHT ANSWERS
+var score = document.getElementById("score");
+score.textContent = 0;
+score.textContent = parseInt(score.textContent) + 10;
