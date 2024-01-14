@@ -41,7 +41,7 @@ function displayQuestion() {
 // DISPLAY THE FIRST QUESTION
 displayQuestion();
 
-// GET USER SELECTED ANSWER (A, B, C, or D) FROM CLICK EVENT AND CHECK IF IT IS THE CORRECT ANSWER
+// GET USER SELECTED ANSWER (A, B, C, or D) FROM CLICK EVENT AND CHECK IF IT IS THE CORRECT ANSWER AND ADD SCORE
 var selectedAnswer;
 var score = document.getElementById("score");
 score.textContent = 0;
