@@ -4,11 +4,15 @@
 /* VARIABLES */
 :root {
   --darkblue: rgb(10, 214, 3);
-  --lightblue: rgb(0, 0, 0);
+  --lightblue: rgb(21, 21, 21);
   --white: rgb(1, 106, 11);
   /* --darkblue: rgb(33, 101, 237);
   --lightblue: rgb(114, 194, 235);
   --white: rgb(255, 255, 255); */
+}
+
+::selection {
+  background-color: rgb(3, 70, 3)
 }
 
 /* GENERAL */
@@ -90,7 +94,7 @@ body {
 
 .answers-list li:hover {
   cursor: pointer;
-  text-shadow: 0 0 10px rgb(0, 255, 38);
+  text-shadow: 0 0 15px rgb(0, 255, 38);
 }
 
 .answers-list li:nth-child(2) {
