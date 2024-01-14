@@ -43,14 +43,17 @@ displayQuestion();
 
 // GET USER SELECTED ANSWER (A, B, C, or D) FROM CLICK EVENT AND CHECK IF IT IS THE CORRECT ANSWER
 var selectedAnswer;
+var score = document.getElementById("score");
+score.textContent = 0;
 
 document.addEventListener("click", function (event) {
   var clickedElement = event.target;
   selectedAnswer = clickedElement.dataset.value;
-
+  
   if (selectedAnswer != undefined) {
     if (selectedAnswer == questionSet[0].correct) {
       alert("You are correct!");
+      score.textContent = parseInt(score.textContent) + 10;
       questionIndex++;
       displayQuestion();
     } else {
@@ -61,6 +64,6 @@ document.addEventListener("click", function (event) {
 });
 
 // ADD 10 POINTS TO SCORE FOR RIGHT ANSWERS
-var score = document.getElementById("score");
-score.textContent = 0;
-score.textContent = parseInt(score.textContent) + 10;
+// var score = document.getElementById("score");
+// score.textContent = 0;
+// score.textContent = parseInt(score.textContent) + 10;
