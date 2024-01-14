@@ -4,7 +4,7 @@ document.getElementById("timerEl").innerHTML = "0";
 var initialTime = 0;
 var setTime;
 
-function timer() {
+function startQuiz() {
   clearInterval(setTime);
 
   if (initialTime <= 0) {
@@ -24,7 +24,7 @@ function timer() {
 }
 
 // START TIMER WITH BUTTON
-document.getElementById("start-btn").addEventListener("click", timer);
+document.getElementById("start-btn").addEventListener("click", startQuiz);
 
 // FUNCTION TO DISPLAY QUESTIONS
 var questionIndex = 0;
