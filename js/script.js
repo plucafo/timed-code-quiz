@@ -8,49 +8,54 @@ function timer() {
   clearInterval(setTime);
 
   if (initialTime <= 0) {
-  initialTime = 30;
-  document.getElementById("start-btn").disabled = true;
+    initialTime = 30;
+    document.getElementById("start-btn").disabled = true;
 
-  setTime = setInterval(function () {
-    document.getElementById("timerEl").innerHTML = initialTime;
-    initialTime--;
+    setTime = setInterval(function () {
+      document.getElementById("timerEl").innerHTML = initialTime;
+      initialTime--;
 
-    if (initialTime < 0) {
-      clearInterval(setTime);
-      document.getElementById("start-btn").disabled = false;
-    }
-  }, 1000);
-} 
+      if (initialTime < 0) {
+        clearInterval(setTime);
+        document.getElementById("start-btn").disabled = false;
+      }
+    }, 1000);
+  }
 }
 
 // START TIMER WITH BUTTON
 document.getElementById("start-btn").addEventListener("click", timer);
 
-// ADD QUESTION #1 TO QUESTION FIELD
-document.getElementById("question").innerHTML = questionSet[0].question;
+// FUNCTION TO DISPLAY QUESTIONS
+var questionIndex = 0;
 
-for (var i = 0; i < questionSet[0].answers.length; i++) {
-  var answerId = "answer" + (i + 1);
-  document.getElementById(answerId).innerHTML = questionSet[0].answers[i];
+function displayQuestion() {
+  document.getElementById("question").innerHTML = questionSet[questionIndex].question;
+
+  for (var i = 0; i < questionSet[questionIndex].answers.length; i++) {
+    var answerId = "answer" + (i + 1);
+    document.getElementById(answerId).innerHTML = questionSet[questionIndex].answers[i];
+  }
 }
-// REPLACED CODE BELOW WITH ABOVE FOR LOOP
-// document.getElementById("answer1").innerHTML = questionSet[0].answers[0];
-// document.getElementById("answer2").innerHTML = questionSet[0].answers[1];
-// document.getElementById("answer3").innerHTML = questionSet[0].answers[2];
-// document.getElementById("answer4").innerHTML = questionSet[0].answers[3];
 
+// DISPLAY THE FIRST QUESTION
+displayQuestion();
 
 // GET USER SELECTED ANSWER (A, B, C, or D) FROM CLICK EVENT AND CHECK IF IT IS THE CORRECT ANSWER
 var selectedAnswer;
 
-document.addEventListener('click', function(event){
+document.addEventListener("click", function (event) {
   var clickedElement = event.target;
   selectedAnswer = clickedElement.dataset.value;
-  
+
   if (selectedAnswer != undefined) {
-  if (selectedAnswer == questionSet[0].correct) {
-  alert("You are correct!");
-  } else {
-    alert("You are incorrect :(");
+    if (selectedAnswer == questionSet[0].correct) {
+      alert("You are correct!");
+      // CALL FUNCTION TO CHANGE questionSet once it is made
+    } else {
+      alert("You are incorrect :(");
+    }
   }
-}})
+});
+
+// CREATE FUNCTION TO CHANGE questionSet HERE
