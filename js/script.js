@@ -8,7 +8,7 @@ document.getElementById("answer1").innerHTML =
 document.getElementById("answer2").innerHTML =
   "- Each correct answer will reward you with 100 points";
 document.getElementById("answer3").innerHTML =
-  "- Each wrong answer will deduct 5 seconds from the remaining time";
+  "- Wrong answers deduct 5 sec from the time";
 document.getElementById("answer4").innerHTML = "- Additional Rule Here";
 
 // START QUIZ
