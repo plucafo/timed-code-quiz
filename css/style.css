@@ -3,11 +3,11 @@
 
 /* VARIABLES */
 :root {
-  --darkblue: rgb(10, 214, 3);
-  --lightblue: rgb(21, 21, 21);
+  --green: rgb(10, 214, 3);
+  --black: rgb(21, 21, 21);
   --white: rgb(255, 255, 255);
-  /* --darkblue: rgb(33, 101, 237);
-  --lightblue: rgb(114, 194, 235);
+  /* --green: rgb(33, 101, 237);
+  --black: rgb(114, 194, 235);
   --white: rgb(255, 255, 255); */
 }
 
@@ -24,8 +24,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--lightblue);
-  color: var(--darkblue);
+  background: var(--black);
+  color: var(--green);
 }
 
 /* PAGE LAYOUT */
@@ -54,10 +54,10 @@ body {
 #start-btn {
   padding: 10px;
   border-radius: 50px;
-  color: var(--lightblue);
-  background: var(--darkblue);
+  color: var(--green);
+  background: var(--black);
   border-style: dotted;
-  border-color: black;
+  border-color: var(--green);
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
@@ -65,16 +65,16 @@ body {
 }
 
 #start-btn:hover {
-    color: var(--darkblue);
-    background-color: black;
-    border-color: var(--darkblue);
+    color: var(--black);
+    background-color: var(--green);
+    border-color: var(--black);
 }
 
 /* QUESTION & ANSWERS FIELD */
 .question-field {
   max-width: 500px;
   margin: 0 auto;
-  border: 2px dotted var(--darkblue);
+  border: 2px dotted var(--green);
   border-radius: 50px;
   display: flex;
   flex-direction: column;
