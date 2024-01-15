@@ -8,7 +8,7 @@ function startQuiz() {
   clearInterval(setTime);
 
   if (initialTime <= 0) {
-    initialTime = 30;
+    initialTime = 3;
     document.getElementById("start-btn").disabled = true;
 
     setTime = setInterval(function () {
@@ -17,6 +17,14 @@ function startQuiz() {
 
       if (initialTime < 0) {
         clearInterval(setTime);
+        
+        // SET TEXT TO GAME OVER THANKS FOR PLAYING WHEN TIMER REACHES 0
+        document.getElementById("question").innerHTML = "GAME OVER";
+        for (var i = 0; i < questionSet[questionIndex].answers.length; i++) {
+          var answerId = "answer" + (i + 1);
+          document.getElementById(answerId).innerHTML = "Thanks for playing!";
+        }
+
         document.getElementById("start-btn").disabled = false;
       }
     }, 1000);
@@ -30,11 +38,13 @@ document.getElementById("start-btn").addEventListener("click", startQuiz);
 var questionIndex = 0;
 
 function displayQuestion() {
-  document.getElementById("question").innerHTML = questionSet[questionIndex].question;
+  document.getElementById("question").innerHTML =
+    questionSet[questionIndex].question;
 
   for (var i = 0; i < questionSet[questionIndex].answers.length; i++) {
     var answerId = "answer" + (i + 1);
-    document.getElementById(answerId).innerHTML = questionSet[questionIndex].answers[i];
+    document.getElementById(answerId).innerHTML =
+      questionSet[questionIndex].answers[i];
   }
 }
 
@@ -49,7 +59,7 @@ score.textContent = 0;
 document.addEventListener("click", function (event) {
   var clickedElement = event.target;
   selectedAnswer = clickedElement.dataset.value;
-  
+
   if (selectedAnswer != undefined) {
     if (selectedAnswer == questionSet[0].correct) {
       alert("You are correct!");
@@ -63,8 +73,3 @@ document.addEventListener("click", function (event) {
     }
   }
 });
-
-// ADD 10 POINTS TO SCORE FOR RIGHT ANSWERS
-// var score = document.getElementById("score");
-// score.textContent = 0;
-// score.textContent = parseInt(score.textContent) + 10;
