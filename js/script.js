@@ -1,4 +1,5 @@
 document.getElementById("timerEl").innerHTML = "0";
+document.querySelector(".question-field").style.pointerEvents = 'none';
 
 // COUNTDOWN TIMER
 var initialTime = 0;
@@ -6,9 +7,11 @@ var setTime;
 
 function startQuiz() {
   clearInterval(setTime);
-
+  questionIndex = 0;
+  displayQuestion();
+  document.querySelector(".question-field").style.pointerEvents = 'auto';
   if (initialTime <= 0) {
-    initialTime = 3;
+    initialTime = 30;
     document.getElementById("start-btn").disabled = true;
 
     setTime = setInterval(function () {
@@ -17,7 +20,8 @@ function startQuiz() {
 
       if (initialTime < 0) {
         clearInterval(setTime);
-        
+        document.querySelector(".question-field").style.pointerEvents = 'none';
+
         // SET TEXT TO GAME OVER THANKS FOR PLAYING WHEN TIMER REACHES 0
         document.getElementById("question").innerHTML = "GAME OVER";
         for (var i = 0; i < questionSet[questionIndex].answers.length; i++) {
