@@ -58,6 +58,7 @@ document.addEventListener("click", function (event) {
       displayQuestion();
     } else {
       alert("You are incorrect :(");
+      initialTime = initialTime - 5;
       displayQuestion();
     }
   }
