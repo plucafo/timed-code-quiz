@@ -19,7 +19,7 @@ function startQuiz() {
   displayQuestion();
   document.querySelector(".question-field").style.pointerEvents = 'auto';
   if (initialTime <= 0) {
-    initialTime = 300;
+    initialTime = 10;
     document.getElementById("start-btn").disabled = true;
 
     setTime = setInterval(function () {
@@ -31,16 +31,20 @@ function startQuiz() {
         document.querySelector(".question-field").style.pointerEvents = 'none';
 
         // SET TEXT TO GAME OVER THANKS FOR PLAYING WHEN TIMER REACHES 0
-        document.getElementById("question").innerHTML = "GAME OVER";
-        for (var i = 0; i < questionSet[questionIndex].answers.length; i++) {
-          var answerId = "answer" + (i + 1);
-          document.getElementById(answerId).innerHTML = "Thanks for playing!";
-        }
+        gameOver();
 
         document.getElementById("start-btn").disabled = false;
       }
     }, 1000);
   }
+}
+
+function gameOver() {
+  document.getElementById("question").innerHTML = "GAME OVER";
+        for (var i = 0; i < questionSet[questionIndex].answers.length; i++) {
+          var answerId = "answer" + (i + 1);
+          document.getElementById(answerId).innerHTML = "Thanks for playing!";
+        }
 }
 
 // START TIMER WITH BUTTON
