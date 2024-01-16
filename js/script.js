@@ -76,10 +76,19 @@ score.textContent = 0;
 document.addEventListener("click", function (event) {
   var clickedElement = event.target;
   selectedAnswer = clickedElement.dataset.value;
-
+  
+  var rightAnswer = document.getElementById("right");
+  var wrongAnswer = document.getElementById("wrong");
+  
   if (selectedAnswer != undefined) {
     if (selectedAnswer == questionSet[questionIndex].correct) {
-      alert("You are correct!");
+      // alert("You are correct!");
+      wrongAnswer.style.setProperty("display", "none");
+      rightAnswer.style.setProperty("display", "block");
+      setTimeout(function() {
+        rightAnswer.style.display = "none";
+      }, 1000);
+      
       score.textContent = parseInt(score.textContent) + 10;
       questionIndex++;
 
@@ -92,7 +101,13 @@ document.addEventListener("click", function (event) {
       console.log(questionIndex);
 
     } else {
-      alert("You are incorrect :(");
+      // alert("You are incorrect :(");
+      rightAnswer.style.setProperty("display", "none");
+      wrongAnswer.style.setProperty("display", "block");
+      setTimeout(function() {
+        wrongAnswer.style.display = "none";
+      }, 1000);
+      
       initialTime = initialTime - 5;
       score.textContent = parseInt(score.textContent) - 5;
       questionIndex++;

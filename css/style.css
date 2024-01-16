@@ -107,5 +107,12 @@ body {
   color: var(--white);
 }
 
+/* CORRECT or INCORRECT TEXT */
+#right,
+#wrong {
+  font-style: italic;
+  text-decoration: underline;
+  display: none;
+} 
 
 
