@@ -107,7 +107,7 @@ body {
   color: var(--white);
 }
 
-/* CORRECT or INCORRECT TEXT */
+/* CORRECT or INCORRECT POPUP */
 #right,
 #wrong {
   font-style: italic;

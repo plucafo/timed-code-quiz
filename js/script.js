@@ -122,3 +122,10 @@ document.addEventListener("click", function (event) {
     }
   }
 });
+
+
+// Write function saveHighscore()
+// 2. prompt user to save initials and highscore
+// 3. if user selects save use localStorage.setItem('highscore', score); to save the score
+// 4. else exit function with return;
+// 5. insert function into code that checks if the user answered the last question or if the time reaches zero - before score is reset to 0
