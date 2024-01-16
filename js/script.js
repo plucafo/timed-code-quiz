@@ -94,6 +94,7 @@ document.addEventListener("click", function (event) {
     } else {
       alert("You are incorrect :(");
       initialTime = initialTime - 5;
+      score.textContent = parseInt(score.textContent) - 5;
       questionIndex++;
 
       if (questionIndex < questionSet.length) {
