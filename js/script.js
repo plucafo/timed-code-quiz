@@ -22,7 +22,7 @@ function startQuiz() {
   displayQuestion();
   document.querySelector(".question-field").style.pointerEvents = "auto";
   if (initialTime <= 0) {
-    initialTime = 300;
+    initialTime = 3;
     document.getElementById("start-btn").disabled = true;
 
     setTime = setInterval(function () {
@@ -33,6 +33,7 @@ function startQuiz() {
         clearInterval(setTime);
         document.querySelector(".question-field").style.pointerEvents = "none";
         gameOver(0);
+        saveHighScore();
         document.getElementById("start-btn").disabled = false;
       }
     }, 1000);
@@ -96,6 +97,7 @@ document.addEventListener("click", function (event) {
         displayQuestion();
       } else {
         gameOver(1);
+        saveHighScore();
         initialTime = 0;
       }
       console.log(questionIndex);
@@ -114,7 +116,8 @@ document.addEventListener("click", function (event) {
       if (questionIndex < questionSet.length) {
         displayQuestion();
       } else {
-        gameOver();
+        gameOver(1);
+        saveHighScore();
         initialTime = 0;
       }
       console.log(questionIndex);
@@ -127,10 +130,10 @@ document.addEventListener("click", function (event) {
 // 3. if user selects save use localStorage.setItem('highscore', score); to save the score
 // 4. else exit function
 // 5. insert function into code that checks if the user answered the last question or if the time reaches zero - before score is reset to 0
-// function saveHighScore() {
-//   var initials = prompt("Enter your initials to save your score: " + score);
-//   if (initials != null) {
-//     localStorage.setItem("initials", initials);
-//     localStorage.setItem("score", score);
-//   }
-// }
+function saveHighScore() {
+  var initials = prompt("Enter your initials to save your score: " + score.value);
+  if (initials != null) {
+    localStorage.setItem("initials", initials);
+    localStorage.setItem("score", score.textContent);
+  }
+}
