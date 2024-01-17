@@ -4,7 +4,7 @@ document.querySelector(".question-field").style.pointerEvents = "none";
 // DISPLAY RULES
 document.getElementById("question").innerHTML = "Quiz Rules";
 document.getElementById("answer1").innerHTML =
-  "- You will have 30 seconds to complete the quiz";
+  "- You will have 100 seconds to complete the quiz";
 document.getElementById("answer2").innerHTML =
   "- Each correct answer will reward you with 100 points";
 document.getElementById("answer3").innerHTML =
@@ -24,7 +24,7 @@ function startQuiz() {
   displayQuestion();
   document.querySelector(".question-field").style.pointerEvents = "auto";
   if (initialTime <= 0) {
-    initialTime = 300; // STARTING TIME
+    initialTime = 100; // STARTING TIME
     document.getElementById("start-btn").disabled = true;
 
     setTime = setInterval(function () {
@@ -104,7 +104,7 @@ document.addEventListener("click", function (event) {
       } else {
         gameOver(1);
         saveHighScore();
-        score.textContent = parseInt(score.textContent) + initialTime; //TESTINGNOW
+        score.textContent = parseInt(score.textContent) + initialTime; // Add remaining time to score
         initialTime = 0;
       }
       // console.log(questionIndex); TESTING
@@ -118,7 +118,6 @@ document.addEventListener("click", function (event) {
       
       if (initialTime > 5) {
       initialTime = initialTime - 5;
-      // score.textContent = parseInt(score.textContent) - 5;
       }
 
       questionIndex++;
@@ -129,7 +128,7 @@ document.addEventListener("click", function (event) {
       } else {
         gameOver(1);
         saveHighScore();
-        score.textContent = parseInt(score.textContent) + initialTime; //TESTINGNOW
+        score.textContent = parseInt(score.textContent) + initialTime; // Add remaining time to score
         initialTime = 0;
       }
       console.log(questionIndex);
