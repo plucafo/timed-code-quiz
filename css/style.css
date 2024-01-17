@@ -117,11 +117,16 @@ body {
 
 /* SAVE INITIALS */
 #save-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   display: none;
   pointer-events: auto;
+  width: 100px;
 }
 
 #initials-field {
   text-transform: uppercase;
+  text-align: center;
 }
 
