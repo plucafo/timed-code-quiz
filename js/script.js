@@ -24,7 +24,7 @@ function startQuiz() {
   displayQuestion();
   document.querySelector(".question-field").style.pointerEvents = "auto";
   if (initialTime <= 0) {
-    initialTime = 10;
+    initialTime = 300; // STARTING TIME
     document.getElementById("start-btn").disabled = true;
 
     setTime = setInterval(function () {
@@ -97,12 +97,14 @@ document.addEventListener("click", function (event) {
       score.textContent = parseInt(score.textContent) + 10;
 
       questionIndex++;
-
+      
+      // CHECKS IF USER ANSWERED FINAL QUESTION
       if (questionIndex < questionSet.length) {
         displayQuestion();
       } else {
         gameOver(1);
         saveHighScore();
+        score.textContent = parseInt(score.textContent) + initialTime; //TESTINGNOW
         initialTime = 0;
       }
       // console.log(questionIndex); TESTING
@@ -121,11 +123,13 @@ document.addEventListener("click", function (event) {
 
       questionIndex++;
 
+      // CHECKS IF USER ANSWERED FINAL QUESTION
       if (questionIndex < questionSet.length) {
         displayQuestion();
       } else {
         gameOver(1);
         saveHighScore();
+        score.textContent = parseInt(score.textContent) + initialTime; //TESTINGNOW
         initialTime = 0;
       }
       console.log(questionIndex);
