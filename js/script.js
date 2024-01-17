@@ -9,7 +9,7 @@ document.getElementById("answer2").innerHTML =
   "- Each correct answer will reward you with 100 points";
 document.getElementById("answer3").innerHTML =
   "- Wrong answers deduct 5 sec from the time";
-document.getElementById("answer4").innerHTML = "- Additional Rule Here";
+document.getElementById("answer4").innerHTML = "- Enter your initials to save your score when finished";
 
 // START QUIZ
 var initialTime = 0;
@@ -131,9 +131,14 @@ document.addEventListener("click", function (event) {
 // 4. else exit function
 // 5. insert function into code that checks if the user answered the last question or if the time reaches zero - before score is reset to 0
 function saveHighScore() {
-  var initials = prompt("Enter your initials to save your score: " + score.value);
-  if (initials != null) {
-    localStorage.setItem("initials", initials);
-    localStorage.setItem("score", score.textContent);
-  }
+  // var initials = prompt("Enter your initials to save your score: " + score.value);
+  var saveInitials = document.getElementById("save-container");
+  var saveButton = document.getElementById("save-button");
+
+  saveInitials.style.display = "flex";
+
+  // if (initials != null) {
+  //   localStorage.setItem("initials", initials);
+  //   localStorage.setItem("score", score.textContent);
+  // }
 }

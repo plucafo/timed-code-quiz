@@ -115,4 +115,13 @@ body {
   display: none;
 } 
 
+/* SAVE INITIALS */
+#save-container {
+  display: none;
+  pointer-events: auto;
+}
+
+#initials-field {
+  text-transform: uppercase;
+}
 
