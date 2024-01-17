@@ -18,12 +18,13 @@ var setTime;
 
 function startQuiz() {
   clearInterval(setTime);
+  saveContainer.style.display = "none";
   questionIndex = 0; // Increases when user selects an answer
   score.textContent = 0;
   displayQuestion();
   document.querySelector(".question-field").style.pointerEvents = "auto";
   if (initialTime <= 0) {
-    initialTime = 3;
+    initialTime = 10;
     document.getElementById("start-btn").disabled = true;
 
     setTime = setInterval(function () {
@@ -91,8 +92,10 @@ document.addEventListener("click", function (event) {
       setTimeout(function () {
         rightAnswer.style.display = "none";
       }, 1000);
-
+      
+      // Add 10 points to score
       score.textContent = parseInt(score.textContent) + 10;
+
       questionIndex++;
 
       if (questionIndex < questionSet.length) {
@@ -110,9 +113,12 @@ document.addEventListener("click", function (event) {
       setTimeout(function () {
         wrongAnswer.style.display = "none";
       }, 1000);
-
+      
+      if (initialTime > 5) {
       initialTime = initialTime - 5;
-      score.textContent = parseInt(score.textContent) - 5;
+      // score.textContent = parseInt(score.textContent) - 5;
+      }
+
       questionIndex++;
 
       if (questionIndex < questionSet.length) {
@@ -127,14 +133,10 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// Write function saveHighscore()
-// 2. prompt user to save initials and highscore
-// 3. if user selects save use localStorage.setItem('highscore', score); to save the score
-// 4. else exit function
-// 5. insert function into code that checks if the user answered the last question or if the time reaches zero - before score is reset to 0
+// FUNCTION TO SAVE HIGHSCORE
+var saveContainer = document.getElementById("save-container");
 function saveHighScore() {
-  var saveInitials = document.getElementById("save-container");
-  saveInitials.style.display = "flex";
+  saveContainer.style.display = "flex";
 }
 
 // WRITE EVENT LISTENER TO SAVE DATA WHEN SAVE BUTTON IS CLICKED
