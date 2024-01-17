@@ -32,7 +32,7 @@ function startQuiz() {
       if (initialTime < 0) {
         clearInterval(setTime);
         document.querySelector(".question-field").style.pointerEvents = "none";
-        gameOver();
+        gameOver(0);
         document.getElementById("start-btn").disabled = false;
       }
     }, 1000);
@@ -40,9 +40,9 @@ function startQuiz() {
 }
 
 // DISPLAY GAME OVER
-function gameOver() {
+function gameOver(index) {
   document.getElementById("question").innerHTML = "GAME OVER";
-  for (var i = 0; i < questionSet[questionIndex - 1].answers.length; i++) {
+  for (var i = 0; i < questionSet[questionIndex - index].answers.length; i++) {
     var answerId = "answer" + (i + 1);
     document.getElementById(answerId).innerHTML = "Thanks for playing!";
   }
@@ -76,38 +76,37 @@ score.textContent = 0;
 document.addEventListener("click", function (event) {
   var clickedElement = event.target;
   selectedAnswer = clickedElement.dataset.value;
-  
+
   var rightAnswer = document.getElementById("right");
   var wrongAnswer = document.getElementById("wrong");
-  
+
   if (selectedAnswer != undefined) {
     if (selectedAnswer == questionSet[questionIndex].correct) {
       // alert("You are correct!");
       wrongAnswer.style.setProperty("display", "none");
       rightAnswer.style.setProperty("display", "block");
-      setTimeout(function() {
+      setTimeout(function () {
         rightAnswer.style.display = "none";
       }, 1000);
-      
+
       score.textContent = parseInt(score.textContent) + 10;
       questionIndex++;
 
       if (questionIndex < questionSet.length) {
         displayQuestion();
       } else {
-        gameOver();
+        gameOver(1);
         initialTime = 0;
       }
       console.log(questionIndex);
-
     } else {
       // alert("You are incorrect :(");
       rightAnswer.style.setProperty("display", "none");
       wrongAnswer.style.setProperty("display", "block");
-      setTimeout(function() {
+      setTimeout(function () {
         wrongAnswer.style.display = "none";
       }, 1000);
-      
+
       initialTime = initialTime - 5;
       score.textContent = parseInt(score.textContent) - 5;
       questionIndex++;
@@ -123,9 +122,15 @@ document.addEventListener("click", function (event) {
   }
 });
 
-
 // Write function saveHighscore()
 // 2. prompt user to save initials and highscore
 // 3. if user selects save use localStorage.setItem('highscore', score); to save the score
-// 4. else exit function with return;
+// 4. else exit function
 // 5. insert function into code that checks if the user answered the last question or if the time reaches zero - before score is reset to 0
+// function saveHighScore() {
+//   var initials = prompt("Enter your initials to save your score: " + score);
+//   if (initials != null) {
+//     localStorage.setItem("initials", initials);
+//     localStorage.setItem("score", score);
+//   }
+// }
