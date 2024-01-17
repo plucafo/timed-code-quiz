@@ -9,7 +9,8 @@ document.getElementById("answer2").innerHTML =
   "- Each correct answer will reward you with 100 points";
 document.getElementById("answer3").innerHTML =
   "- Wrong answers deduct 5 sec from the time";
-document.getElementById("answer4").innerHTML = "- Enter your initials to save your score when finished";
+document.getElementById("answer4").innerHTML =
+  "- Enter your initials to save your score when finished";
 
 // START QUIZ
 var initialTime = 0;
@@ -74,6 +75,7 @@ var selectedAnswer;
 var score = document.getElementById("score");
 score.textContent = 0;
 
+// LISTENS FOR CLICK ON TARGET ELEMENTS
 document.addEventListener("click", function (event) {
   var clickedElement = event.target;
   selectedAnswer = clickedElement.dataset.value;
@@ -83,7 +85,7 @@ document.addEventListener("click", function (event) {
 
   if (selectedAnswer != undefined) {
     if (selectedAnswer == questionSet[questionIndex].correct) {
-      // alert("You are correct!");
+      // Display 'Correct!' for one second
       wrongAnswer.style.setProperty("display", "none");
       rightAnswer.style.setProperty("display", "block");
       setTimeout(function () {
@@ -100,9 +102,9 @@ document.addEventListener("click", function (event) {
         saveHighScore();
         initialTime = 0;
       }
-      console.log(questionIndex);
+      // console.log(questionIndex); TESTING
     } else {
-      // alert("You are incorrect :(");
+      // Display 'Wrong!' for one second
       rightAnswer.style.setProperty("display", "none");
       wrongAnswer.style.setProperty("display", "block");
       setTimeout(function () {
@@ -131,14 +133,17 @@ document.addEventListener("click", function (event) {
 // 4. else exit function
 // 5. insert function into code that checks if the user answered the last question or if the time reaches zero - before score is reset to 0
 function saveHighScore() {
-  // var initials = prompt("Enter your initials to save your score: " + score.value);
   var saveInitials = document.getElementById("save-container");
-  var saveButton = document.getElementById("save-button");
-
   saveInitials.style.display = "flex";
-
-  // if (initials != null) {
-  //   localStorage.setItem("initials", initials);
-  //   localStorage.setItem("score", score.textContent);
-  // }
 }
+
+// WRITE EVENT LISTENER TO SAVE DATA WHEN SAVE BUTTON IS CLICKED
+//   localStorage.setItem("initials", initials);
+//   localStorage.setItem("score", score.textContent);
+var userInitials = document.getElementById("initials-field");
+var saveButton = document.getElementById("save-button");
+
+saveButton.addEventListener('click', function(event){
+  localStorage.setItem("initials", userInitials.value);
+  localStorage.setItem("score", score.textContent);
+})
