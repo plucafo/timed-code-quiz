@@ -131,3 +131,8 @@ body {
   text-align: center;
 }
 
+#save-response {
+  display: none;
+  font-size: 0.9rem;
+  font-style: italic;
+}

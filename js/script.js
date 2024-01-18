@@ -19,6 +19,7 @@ var setTime;
 function startQuiz() {
   clearInterval(setTime);
   saveContainer.style.display = "none";
+  saveResponse.style.display = "none";
   questionIndex = 0; // Increases when user selects an answer
   score.textContent = 0;
   displayQuestion();
@@ -34,7 +35,7 @@ function startQuiz() {
       if (initialTime < 0) {
         clearInterval(setTime);
         document.querySelector(".question-field").style.pointerEvents = "none";
-        gameOver(0);
+        gameOver();
         saveHighScore();
         document.getElementById("start-btn").disabled = false;
       }
@@ -43,13 +44,16 @@ function startQuiz() {
 }
 
 // DISPLAY GAME OVER
-function gameOver(index) {
+function gameOver() {
+  document.getElementById("start-btn").disabled = false;
   document.getElementById("question").innerHTML = "GAME OVER";
-  for (var i = 0; i < questionSet[questionIndex - index].answers.length; i++) {
-    var answerId = "answer" + (i + 1);
-    document.getElementById(answerId).innerHTML = "Thanks for playing!";
-  }
-}
+  // for (var i = 0; i < questionSet[questionIndex - 1].answers.length; i++) {
+  //   var answerId = "answer" + (i + 1);
+    document.getElementById("answer1").innerHTML = "Thanks for playing!";
+    document.getElementById("answer2").innerHTML = "Thanks for playing!";
+    document.getElementById("answer3").innerHTML = "Thanks for playing!";
+    document.getElementById("answer4").innerHTML = "Thanks for playing!";
+ }
 
 // START TIMER WITH BUTTON
 document.getElementById("start-btn").addEventListener("click", startQuiz);
@@ -94,7 +98,7 @@ document.addEventListener("click", function (event) {
       }, 1000);
       
       // Add 10 points to score
-      score.textContent = parseInt(score.textContent) + 10;
+      score.textContent = parseInt(score.textContent) + 100;
 
       questionIndex++;
       
@@ -102,7 +106,7 @@ document.addEventListener("click", function (event) {
       if (questionIndex < questionSet.length) {
         displayQuestion();
       } else {
-        gameOver(1);
+        gameOver();
         saveHighScore();
         score.textContent = parseInt(score.textContent) + initialTime; // Add remaining time to score
         initialTime = 0;
@@ -126,12 +130,11 @@ document.addEventListener("click", function (event) {
       if (questionIndex < questionSet.length) {
         displayQuestion();
       } else {
-        gameOver(1);
+        gameOver();
         saveHighScore();
         score.textContent = parseInt(score.textContent) + initialTime; // Add remaining time to score
         initialTime = 0;
       }
-      console.log(questionIndex);
     }
   }
 });
@@ -143,12 +146,13 @@ function saveHighScore() {
 }
 
 // WRITE EVENT LISTENER TO SAVE DATA WHEN SAVE BUTTON IS CLICKED
-//   localStorage.setItem("initials", initials);
-//   localStorage.setItem("score", score.textContent);
 var userInitials = document.getElementById("initials-field");
+var saveResponse = document.getElementById("save-response");
 var saveButton = document.getElementById("save-button");
 
 saveButton.addEventListener('click', function(event){
-  localStorage.setItem("initials", userInitials.value);
+  localStorage.setItem("initials", userInitials.value.toUpperCase());
   localStorage.setItem("score", score.textContent);
+  saveContainer.style.display = "none";
+  saveResponse.style.display = "flex";
 })
