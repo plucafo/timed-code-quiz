@@ -1,15 +1,25 @@
-document.getElementById("timerEl").innerHTML = "0";
-document.querySelector(".question-field").style.pointerEvents = "none";
+// GLOBAL VARIABLES
+var timerEl = document.getElementById("timerEl");
+var questionField = document.querySelector(".question-field");
+var question = document.getElementById("question");
+var answer1 = document.getElementById("answer1");
+var answer2 = document.getElementById("answer2");
+var answer3 = document.getElementById("answer3");
+var answer4 = document.getElementById("answer4");
+
+// SET TIME AND POINTER EVENTS
+timerEl.innerHTML = "0";
+questionField.style.pointerEvents = "none";
 
 // DISPLAY RULES
-document.getElementById("question").innerHTML = "Quiz Rules";
-document.getElementById("answer1").innerHTML =
+question.innerHTML = "Quiz Rules";
+answer1.innerHTML =
   "- You will have 100 seconds to complete the quiz";
-document.getElementById("answer2").innerHTML =
+answer2.innerHTML =
   "- Each correct answer will reward you with 100 points";
-document.getElementById("answer3").innerHTML =
+answer3.innerHTML =
   "- Wrong answers deduct 5 sec from the time";
-document.getElementById("answer4").innerHTML =
+answer4.innerHTML =
   "- Enter your initials to save your score when finished";
 
 // START QUIZ
@@ -156,3 +166,8 @@ saveButton.addEventListener('click', function(event){
   saveContainer.style.display = "none";
   saveResponse.style.display = "flex";
 })
+
+// FUNCTION TO DISPLAY HIGH SCORES
+function displayHighscores() {
+
+}
