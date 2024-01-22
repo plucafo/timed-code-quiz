@@ -13,14 +13,10 @@ questionField.style.pointerEvents = "none";
 
 // DISPLAY RULES
 question.innerHTML = "Quiz Rules";
-answer1.innerHTML =
-  "- You will have 100 seconds to complete the quiz";
-answer2.innerHTML =
-  "- Each correct answer will reward you with 100 points";
-answer3.innerHTML =
-  "- Wrong answers deduct 5 sec from the time";
-answer4.innerHTML =
-  "- Enter your initials to save your score when finished";
+answer1.innerHTML = "- You will have 100 seconds to complete the quiz";
+answer2.innerHTML = "- Each correct answer will reward you with 100 points";
+answer3.innerHTML = "- Wrong answers deduct 5 sec from the time";
+answer4.innerHTML = "- Enter your initials to save your score when finished";
 
 // START QUIZ
 var initialTime = 0;
@@ -30,7 +26,7 @@ function startQuiz() {
   clearInterval(setTime);
   saveContainer.style.display = "none";
   saveResponse.style.display = "none";
-  questionIndex = 0; // Increases when user selects an answer
+  questionIndex = 0; // Increases by one when user selects an answer
   score.textContent = 0;
   displayQuestion();
   document.querySelector(".question-field").style.pointerEvents = "auto";
@@ -57,13 +53,11 @@ function startQuiz() {
 function gameOver() {
   document.getElementById("start-btn").disabled = false;
   document.getElementById("question").innerHTML = "GAME OVER";
-  // for (var i = 0; i < questionSet[questionIndex - 1].answers.length; i++) {
-  //   var answerId = "answer" + (i + 1);
-    document.getElementById("answer1").innerHTML = "Thanks for playing!";
-    document.getElementById("answer2").innerHTML = "Thanks for playing!";
-    document.getElementById("answer3").innerHTML = "Thanks for playing!";
-    document.getElementById("answer4").innerHTML = "Thanks for playing!";
- }
+  answer1.innerHTML = "Thanks for playing!";
+  answer2.innerHTML = "Thanks for playing!";
+  answer3.innerHTML = "Thanks for playing!";
+  answer4.innerHTML = "Thanks for playing!";
+}
 
 // START TIMER WITH BUTTON
 document.getElementById("start-btn").addEventListener("click", startQuiz);
@@ -106,12 +100,12 @@ document.addEventListener("click", function (event) {
       setTimeout(function () {
         rightAnswer.style.display = "none";
       }, 1000);
-      
+
       // Add 10 points to score
       score.textContent = parseInt(score.textContent) + 100;
 
       questionIndex++;
-      
+
       // CHECKS IF USER ANSWERED FINAL QUESTION
       if (questionIndex < questionSet.length) {
         displayQuestion();
@@ -129,9 +123,9 @@ document.addEventListener("click", function (event) {
       setTimeout(function () {
         wrongAnswer.style.display = "none";
       }, 1000);
-      
+
       if (initialTime > 5) {
-      initialTime = initialTime - 5;
+        initialTime = initialTime - 5;
       }
 
       questionIndex++;
@@ -160,14 +154,22 @@ var userInitials = document.getElementById("initials-field");
 var saveResponse = document.getElementById("save-response");
 var saveButton = document.getElementById("save-button");
 
-saveButton.addEventListener('click', function(event){
+saveButton.addEventListener("click", function (event) {
   localStorage.setItem("initials", userInitials.value.toUpperCase());
   localStorage.setItem("score", score.textContent);
   saveContainer.style.display = "none";
   saveResponse.style.display = "flex";
-})
+});
 
 // FUNCTION TO DISPLAY HIGH SCORES
-function displayHighscores() {
+var highscoresBtn = document.getElementById("highscores-btn");
 
+function displayHighscores() {
+  question.innerHTML = "High Scores";
+  answer1.style.display = "none";
+  answer2.style.display = "none";
+  answer3.style.display = "none";
+  answer4.style.display = "none";
 }
+
+highscoresBtn.addEventListener('click', displayHighscores);
