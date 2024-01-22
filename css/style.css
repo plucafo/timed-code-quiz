@@ -136,3 +136,15 @@ body {
   font-size: 0.9rem;
   font-style: italic;
 }
+
+#highscores-btn {
+  cursor: pointer;
+  color: var(--green);
+  font-size: 1rem;
+  background: var(--black);
+  padding: 7px;
+  border-style: dotted;
+  border-color: var(--green);
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
