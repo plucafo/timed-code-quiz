@@ -7,17 +7,24 @@ var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var answer4 = document.getElementById("answer4");
 var startBtn = document.getElementById("start-btn");
+var backBtn = document.getElementById("back-btn");
 
 // SET TIME AND POINTER EVENTS
 timerEl.innerHTML = "0";
 questionField.style.pointerEvents = "none";
 
+
 // DISPLAY RULES
+function displayRules() {
+backBtn.style.display = "none";
 question.innerHTML = "Quiz Rules";
 answer1.innerHTML = "- You will have 100 seconds to complete the quiz";
 answer2.innerHTML = "- Each correct answer will reward you with 100 points";
 answer3.innerHTML = "- Wrong answers deduct 5 sec from the time";
 answer4.innerHTML = "- Enter your initials to save your score when finished";
+}
+
+displayRules();
 
 // START QUIZ
 var initialTime = 0;
@@ -27,6 +34,7 @@ function startQuiz() {
   clearInterval(setTime);
   saveContainer.style.display = "none";
   saveResponse.style.display = "none";
+  backBtn.style.display = "none";
   questionIndex = 0; // Increases by one when user selects an answer
   score.textContent = 0;
   displayQuestion();
@@ -35,6 +43,8 @@ function startQuiz() {
     initialTime = 100; // STARTING TIME
     startBtn.disabled = true;
     highscoresBtn.disabled = true;
+    startBtn.style.pointerEvents = "none";
+    highscoresBtn.style.pointerEvents = "none";
 
     setTime = setInterval(function () {
       document.getElementById("timerEl").innerHTML = initialTime;
@@ -47,6 +57,8 @@ function startQuiz() {
         saveHighScore();
         startBtn.disabled = false;
         highscoresBtn.disabled = false;
+        startBtn.style.pointerEvents = "auto";
+    highscoresBtn.style.pointerEvents = "auto";
       }
     }, 1000);
   }
@@ -185,6 +197,9 @@ saveButton.addEventListener("click", function (event) {
 var highscoresBtn = document.getElementById("highscores-btn");
 
 function displayHighscores() {
+  backBtn.style.display = "flex";
+  backBtn.style.pointerEvents = "auto";
+
   answer1.innerHTML = "";
   answer2.innerHTML = "";
   answer3.innerHTML = "";
@@ -198,7 +213,10 @@ function displayHighscores() {
   answer2.innerHTML = highScores[2].initials + " - " + highScores[2].score;
   answer3.innerHTML = highScores[1].initials + " - " + highScores[1].score;
   answer4.innerHTML = highScores[0].initials + " - " + highScores[0].score;
-
+  
 }
 
 highscoresBtn.addEventListener("click", displayHighscores);
+
+backBtn.addEventListener("click", displayRules);
+

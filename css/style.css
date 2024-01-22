@@ -5,10 +5,10 @@
 :root {
   --green: rgb(10, 214, 3);
   --black: rgb(21, 21, 21);
-  --white: rgb(25, 105, 7);
+  --darkgreen: rgb(25, 105, 7);
   /* --green: rgb(33, 101, 237);
   --black: rgb(114, 194, 235);
-  --white: rgb(255, 255, 255); */
+  --darkgreen: rgb(255, 255, 255); */
 }
 
 ::selection {
@@ -87,7 +87,7 @@ body {
 
 #question {
   font-size: 1.3rem;
-  color: var(--white);
+  color: var(--darkgreen);
 }
 
 .answers-list {
@@ -100,11 +100,11 @@ body {
 }
 
 .answers-list li:nth-child(2) {
-  color: var(--white);
+  color: var(--darkgreen);
 }
 
 .answers-list li:nth-child(4) {
-  color: var(--white);
+  color: var(--darkgreen);
 }
 
 /* CORRECT or INCORRECT POPUP */
@@ -137,6 +137,22 @@ body {
   font-style: italic;
 }
 
+#initials-field {
+  color: var(--green);
+  background-color: black;
+  border-color: var(--green);
+}
+
+#save-button {
+  cursor: pointer;
+  color: var(--green);
+  background: var(--black);
+  padding: 7px;
+  border-style: dotted;
+  border-color: var(--green);
+  border-radius: 5px;
+}
+
 #highscores-btn {
   cursor: pointer;
   color: var(--green);
@@ -147,4 +163,15 @@ body {
   border-color: var(--green);
   border-radius: 5px;
   margin-bottom: 2px;
+}
+
+#back-btn {
+  cursor: pointer;
+  color: var(--green);
+  font-size: 1rem;
+  background: var(--black);
+  padding: 7px;
+  border-style: dotted;
+  border-color: var(--green);
+  border-radius: 5px;
 }
