@@ -1,9 +1,14 @@
 # Timed Coding Quiz
 
+[![landing page for the quiz](/Assets/codequiz.png)](/Assets/codequiz.png)
+
 Welcome to the Timed Coding Quiz! This project is a simple web-based quiz game where users can test their coding knowledge within a limited time frame. The quiz includes multiple-choice questions, and the users' scores are calculated based on their correct answers and the remaining time.
+
+
 
 ## Table of Contents
 
+- [Links](#links)
 - [Features](#features)
 - [Usage](#usage)
 - [How to Play](#how-to-play)
@@ -12,6 +17,11 @@ Welcome to the Timed Coding Quiz! This project is a simple web-based quiz game w
 - [Built With](#built-with)
 - [Contributing](#contributing)
 - [Authors](#authors)
+
+## Links
+
+[github repo](https://github.com/plucafo/timed-code-quiz)<br>
+[live demo](https://plucafo.github.io/timed-code-quiz/)
 
 ## Features
 
@@ -61,4 +71,8 @@ Contributions are welcome! If you have any ideas or improvements, feel free to s
 
 ## Authors
 
-[plucafo](https://github.com/plucafo)
+[- plucafo](https://github.com/plucafo)
+
+<hr>
+
+[Back to top](#)
